@@ -1,0 +1,8 @@
+
+- TODO: improve keyring initialization:
+	- ```
+		I: Keyring file not available at /usr/share/keyrings/debian-archive-keyring.gpg; switching to https mirror https://mirrors.kernel.org/debian`
+	```
+		- That's rather alarming.  We should maybe pin that, at least.  Not that pgp/gpg keys are good at revokability and stuff but like trusting the CA bundle in our bootstrap image is super non desirable
+
+
