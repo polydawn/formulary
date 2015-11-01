@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+
+one="$1"
+two="$2"
+
+repeatr run -i <(cat <<EOF
+inputs:
+	"/":
+		type: "tar"
+		hash: "AcUX5a-0uYUfqbJnBcgmuLbOiRCi1SMTPKlZ1n6XqVx-7LYP3G0vOD3sk-hRnEiQ"
+		silo: "file+ca://./wares/"
+action:
+	command:
+		- "/usr/bin/diffoscope"
+		- "${one}"
+		- "${two}"
+	escapes:
+		mounts:
+			"/work": "."
+	cwd: "/work"
+outputs:
+	"nil":
+		type: "tar"
+		mount: "/nope"
+EOF
+)
