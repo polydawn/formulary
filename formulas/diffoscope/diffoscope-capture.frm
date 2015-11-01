@@ -22,11 +22,11 @@ action:
 				set -x
 				cat /etc/os-release
 				
-				# can you please not install mono, a haskel compiler, and a fucking jdk on your way to diffoscope, which uses none of those things?
+				# can you please not install mono, a haskell compiler, and a fucking jdk on your way to diffoscope, which uses none of those things?
 				echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf
 				echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf
 				echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
-				
+
 				# finally get diffoscope.  it wasn't available as an `--include` at debootstrap time.
 				time apt-get update
 				time apt-get install -y diffoscope
