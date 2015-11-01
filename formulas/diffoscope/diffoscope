@@ -4,7 +4,7 @@ set -euo pipefail
 one="$1"
 two="$2"
 
-repeatr run -i <(cat <<EOF
+repeatr run -e runc -i <(cat <<EOF
 inputs:
 	"/":
 		type: "tar"
