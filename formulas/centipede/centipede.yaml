@@ -1,8 +1,8 @@
 inputs:
     "/":
         type: "tar"
-        hash: "rzRwbOoiRoR9ExhI3GcSMgJ8b0uyZW_I2NoaUmm7HxNSmAF-DJXxnbIHYHw8J8ou"
-        silo: "file://./centipede_zero.tar.gz"
+        hash: "-IP_ZOz30QZTXCL70RnykcNhgN1nRyI3zyBUkaSBUR0xVqn3O0-2x_ZwWR_Btjg5"
+        silo: "file+ca://./wares"
     "/bootstrap/glibc":
         type: "tar"
         hash: "N-tnJ5vuP7cLHvkVV2wdCOpE2P6njprCFw8gThV86T_-5vuUBOZClILXhh5DIc52"
@@ -49,4 +49,4 @@ outputs:
     "/target":
         type: "tar"
         mount: "/target"
-        silo: "file://stage1.tar.gz"
+        silo: "file+ca://./wares"
