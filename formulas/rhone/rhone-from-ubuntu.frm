@@ -26,6 +26,7 @@ action:
 			packages+=("gcc")      # compiler
 			packages+=("make")     # build-dep gcc
 			packages+=("gawk")     # build-dep gcc
+			packages+=("build-base")  # idk
 
 			mkdir /rhone
 			/apk/sbin/apk.static \
