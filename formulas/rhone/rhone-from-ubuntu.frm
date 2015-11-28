@@ -27,9 +27,13 @@ action:
 				--keys-dir /apk-known-keys/etc/apk/keys/ \
 				--repository http://nl.alpinelinux.org/alpine/v3.2/main \
 				--initdb \
-				add bash
+				add alpine-base
 
+			### discard messy bits
+			# this one is deterministic, but also a cache that's not relevant to our interests
 			rm -rf /rhone/var/cache/apk/
+			# this one is ver bad: scripts.tar in particular causes nondet because it has timestamps inside of it
+			rm -rf /rhone/lib/apk/db/
 outputs:
 	"rhone":
 		type: "tar"
