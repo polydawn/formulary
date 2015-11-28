@@ -27,7 +27,7 @@ action:
 				--keys-dir /apk-known-keys/etc/apk/keys/ \
 				--repository http://nl.alpinelinux.org/alpine/v3.2/main \
 				--initdb \
-				add alpine-base
+				add busybox bash gcc
 
 			### discard messy bits
 			# this one is deterministic, but also a cache that's not relevant to our interests
