@@ -20,6 +20,13 @@ action:
 			set -euo pipefail
 			set -x
 
+			packages=()
+			packages+=("busybox")  # mvp
+			packages+=("bash")     # mvp
+			packages+=("gcc")      # compiler
+			packages+=("make")     # build-dep gcc
+			packages+=("gawk")     # build-dep gcc
+
 			mkdir /rhone
 			/apk/sbin/apk.static \
 				--root /rhone \
@@ -27,7 +34,7 @@ action:
 				--keys-dir /apk-known-keys/etc/apk/keys/ \
 				--repository http://nl.alpinelinux.org/alpine/v3.2/main \
 				--initdb \
-				add busybox bash gcc
+				add "${packages[@]}"
 
 			### discard messy bits
 			# this one is deterministic, but also a cache that's not relevant to our interests
