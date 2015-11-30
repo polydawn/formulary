@@ -57,7 +57,7 @@ action:
 			# skip lots of extensions
 			# and whitelist languages
 			params+=("--disable-multilib") # this is required
-			params+=("--enable-languages=c") # todo could likely be c++ as well
+			params+=("--enable-languages=c,c++")
 			params+=("--enable-static")
 			params+=("--disable-shared")
 			params+=("--disable-nls")
