@@ -87,7 +87,7 @@ action:
 					echo
 				}
 
-			make
+			make -j8
 
 			### it's very possible it's time to back up and do binutils
 
