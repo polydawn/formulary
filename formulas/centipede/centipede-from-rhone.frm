@@ -68,13 +68,14 @@ action:
 			params+=("--disable-target-libiberty")
 			params+=("--disable-target-zlib")
 			params+=("--disable-decimal-float")
-			params+=("--disable-threads")
+			params+=("--enable-threads")
+			params+=("--enable-tls")
 			params+=("--without-ppl")
 			params+=("--without-cloog")
 
 			# ???
-			params+=("--host=x86_64-unknown-linux-gnu")
-			params+=("--target=x86_64-unknown-linux-gnu")
+			#params+=("--host=x86_64-alpine-linux-musl")
+			#params+=("--target=x86_64-unknown-linux-gnu")
 
 			$gccSrcPath/configure "${params[@]}" || \
 				{
