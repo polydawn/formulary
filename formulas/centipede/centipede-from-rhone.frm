@@ -42,8 +42,8 @@ action:
 
 			params=()
 			params+=("--prefix=/task/target")
-			params+=("--mandir=/dev/null")
-			params+=("--infodir=/dev/null")
+			params+=("--mandir=/task/target/doc/man")
+			params+=("--infodir=/task/target/doc/info")
 
 			# minimum viable libraries (as sources)
 			# ... jk, just move them into a location where gcc picks them up, otherwise we have to separately compile these
