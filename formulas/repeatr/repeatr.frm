@@ -28,4 +28,4 @@ outputs:
 	"executable":
 		type: "tar"
 		mount: "/task/repeatr/.gopath/bin/"
-		silo: "file:///tmp/wares/"
+		silo: "file+ca:///tmp/wares/"
