@@ -12,6 +12,28 @@ inputs:
 		hash: "oSYCZSJxa4EMW8YFe5mVoxTn9KPY4FIvx3rnALnV6Cw5sK60CZNci521pFkcw_QP"
 		silo: "http://nl.alpinelinux.org/alpine/v3.2/main/x86_64/alpine-keys-1.1-r0.apk"
 action:
+	## Regretfully, run as uid=0 with significant capabilities.
+	## `apk` produces substantal amounts of errors otherwise.
+	##
+	## In detail:
+	##  - `apk` run as a routine non-zero-uid will manifest *most* of
+	##    the files correctly, but emit large volumes of complaints about
+	##    setting ownership from most of the packages.
+	##  - `apk` run with with uid=0 and min caps fares better, but still
+	##    hits issues in the post install scripts:
+	##      >    (29/30) Installing busybox (1.23.2-r0)
+	##      >    Executing busybox-1.23.2-r0.post-install
+	##      >    ERROR: busybox-1.23.2-r0.post-install: script exited with error 1
+	##      >    (30/30) Installing gawk (4.1.2-r0)
+	##      >    Executing busybox-1.23.2-r0.trigger
+	##      >    ERROR: busybox-1.23.2-r0.trigger: script exited with error 1
+	##    Haven't yet diagnosed details of what these scripts are requiring.
+	## - `apk` run with 'governor' mode *almost* gets there -- and exits with success(!!)
+	##    ... and yet is subtly wrong: it needs CAP_MKNOD for one... file: '/dev/null'.
+	## So, this requires copious privs.
+	## It's *really* a bummer that mknod doesn't have reasonably fine-grained
+	## privs to separate the obviously safe from dubiously unsafe modes.
+	policy: sysad
 	command:
 		- "/bin/bash"
 		- "-c"
