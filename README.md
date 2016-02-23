@@ -44,3 +44,17 @@ You can run formulas like that one by saving them to a file, and then running th
 Happy (repeatable) hacking!
 
 
+### Note on paths
+
+Prepackaged formulas in this repo mostly refer to "file+ca://./wares/" as their output locations,
+which means (as you'd expect):
+
+- Use a local filesystem for storage
+- Act like it's content-addressable (so you can store as many things as you want there without bothering to name them individually)
+- Use a dir relative to where the process was launched.
+
+So, if your current directory is the repo root dir when you ask repeatr to run the formulas,
+the `./wares` dir will be used -- this dir should already exist when you clone this repo (it contains a gitignore).
+On the other hand, if you `cd` down into the formula dirs and then run things, you'll be informed that there's no wares dir there.
+Of course, you're free to reconfigure this however you want, or create other directories and run repeatr starting from there
+on purpose to keep separate stockpiles of results.
