@@ -43,9 +43,9 @@ action:
 				##  contain timestamps which instantly break reproducibility.
 				## One result of this to watch out for is that as a result of the 'nolists' rule,
 				##  you can't `apt-get install` multiple times in a row.
-				echo 'DPkg::Post-Invoke { "rm -rf /var/cache/apt/ || true"; };'         >> /etc/apt/apt.conf.d/80container-nocache
-				echo 'Apt::Update::Post-Invoke { "rm -rf /var/cache/apt/ || true"; };'  >> /etc/apt/apt.conf.d/80container-nocache
-				echo 'Dir::Cache::pkgcache ""; Dir::Cache::srcpkgcache "";'             >> /etc/apt/apt.conf.d/80container-nocache
+				echo 'DPkg::Post-Invoke { "rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true"; };'         >> /etc/apt/apt.conf.d/80container-nocache
+				echo 'Apt::Update::Post-Invoke { "rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true"; };'  >> /etc/apt/apt.conf.d/80container-nocache
+				echo 'Dir::Cache::pkgcache ""; Dir::Cache::srcpkgcache "";'                                                                                     >> /etc/apt/apt.conf.d/80container-nocache
 				## When cleaning up logs, just truncate; don't remove.  Keeps permissions.
 				##  This means subsequent containers using apt won't need policy=governor just so apt can try to chown these files to group=adm.
 				echo 'DPkg::Post-Invoke { "truncate --size=0 /var/log/alternatives.log /var/log/dpkg.log /var/log/apt/* || true"; };' >> /etc/apt/apt.conf.d/80container-nolog
@@ -116,7 +116,7 @@ outputs:
 			- "gid keep"
 		silo: "file+ca://./wares/"
 		## expected result:
-		##   hash: "d24vKLQ2E0jSK41DIgNYJtevkvPDjABdvoq1B3PbN8NlWuJNMG-OWhBlpKWmcIus"
+		##   hash: "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT"
 		##   ... and about 63M as a gz; no significant increase in size from the added stuff.
 	"debug":
 		## export again as dir because I'm lazy and diffing on these.
