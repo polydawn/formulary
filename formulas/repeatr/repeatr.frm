@@ -1,8 +1,10 @@
 inputs:
 	"/":
 		type: "tar"
-		hash: "uJRF46th6rYHt0zt_n3fcDuBfGFVPS6lzRZla5hv6iDoh5DVVzxUTMMzENfPoboL"
-		silo: "http+ca://repeatr.s3.amazonaws.com/assets/"
+		hash: "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT"
+		silo:
+			- "file+ca://./wares/"
+			- "http+ca://repeatr.s3.amazonaws.com/assets/"
 	"/app/go/":
 		type: "tar"
 		hash: "vbl0TwPjBrjoph65IaWxOy-Yl0MZXtXEDKcxodzY0_-inUDq7rPVTEDvqugYpJAH"

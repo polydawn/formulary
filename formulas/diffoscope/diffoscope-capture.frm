@@ -1,8 +1,10 @@
 inputs:
 	"/":
 		type: "tar"
-		hash: "lzcqJKln2_H4TIoizNBCr0qoh8u_Nb_LRwARTZL2RumfbChX031pVl46dcSCG4q3"
-		silo: "http+ca://repeatr.s3.amazonaws.com/assets/"
+		hash: "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT"
+		silo:
+			- "file+ca://./wares/"
+			- "http+ca://repeatr.s3.amazonaws.com/assets/"
 action:
 	command:
 		- "/bin/bash"
