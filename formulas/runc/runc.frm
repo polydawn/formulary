@@ -25,12 +25,10 @@ action:
 			this=github.com/opencontainers/runc
 			mkdir -p $GOPATH/src/$(dirname $this)
 			ln -s ../../../../ $GOPATH/src/$this
-			#BUILDTAGS="" make -e localtest all
-			export GOPATH=$PWD/Godeps/_workspace:$GOPATH
+			make static BUILDTAGS=""
 			mkdir /task/output
 			mkdir /task/output/bin
-			go build -o /task/output/bin/runc
-			go test -v ./...
+			mv runc /task/output/bin
 outputs:
 	"executable":
 		type: "tar"
