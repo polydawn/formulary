@@ -11,7 +11,7 @@ inputs:
 		silo: "https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz"
 	"/task/":
 		type: "git"
-		hash: "6c36d666a1623d57f0d7df98b573245256c47a95"
+		hash: "231da982427a1ba744286ccfa012d8e8594b6b76"
 		silo: "https://github.com/opencontainers/runc.git"
 action:
 	command:
