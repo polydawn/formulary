@@ -1,7 +1,7 @@
 inputs:
 	"/":
 		type: "tar"
-		hash: "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT"
+		hash: "xK30HS-fszVKemoy2G66_1y5-ppBuuL5_T4CexlIETQojPONkleMi-j2YhvmeYF5"
 		silo:
 			- "file+ca://./wares/"
 			- "http+ca://repeatr.s3.amazonaws.com/assets/"
@@ -18,9 +18,6 @@ action:
 		- |
 			set -euo pipefail
 			set -x
-
-			apt-get update
-			apt-get install -y gcc build-essential
 
 			cd src/*
 			CC='gcc -static' \
