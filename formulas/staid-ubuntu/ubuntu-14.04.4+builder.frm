@@ -30,7 +30,9 @@ action:
 			packages+=("make")
 			packages+=("gcc")
 			packages+=("build-essential")
-			## Extended list.  Often downloading tar-packaged sources will
+			## Extended list, pt 1.  Tools popular enough we'll roll with it.
+			packages+=("cmake")
+			## Extended list, pt 2.  Often downloading tar-packaged sources will
 			##  not require these, because the maintainers run them for you.
 			packages+=("autoconf")
 			packages+=("automake")
@@ -53,5 +55,5 @@ outputs:
 			- "gid keep"
 		silo: "file+ca://./wares/"
 		## Today this results in
-		##  "xK30HS-fszVKemoy2G66_1y5-ppBuuL5_T4CexlIETQojPONkleMi-j2YhvmeYF5"
+		##  "0-wPN--PLP80sClmWF_GtUZMckIEiSIC9nCcbzwun55ucvZA2P3ui9rx63yMVacc"
 		##  There is no realistic expectation of stability on that.
