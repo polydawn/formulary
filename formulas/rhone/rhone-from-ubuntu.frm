@@ -30,12 +30,9 @@ action:
 	##      >    Executing busybox-1.23.2-r0.trigger
 	##      >    ERROR: busybox-1.23.2-r0.trigger: script exited with error 1
 	##    Haven't yet diagnosed details of what these scripts are requiring.
-	## - `apk` run with 'governor' mode *almost* gets there -- and exits with success(!!)
-	##    ... and yet is subtly wrong: it needs CAP_MKNOD for one... file: '/dev/null'.
-	## So, this requires copious privs.
-	## It's *really* a bummer that mknod doesn't have reasonably fine-grained
-	## privs to separate the obviously safe from dubiously unsafe modes.
-	policy: sysad
+	## - Previously -- but happily no more -- `apk` run with 'governor' was slightly
+	##    insufficient due to a requirement for CAP_MKNOD for one... file: '/dev/null'.
+	policy: governor
 	command:
 		- "/bin/bash"
 		- "-c"
