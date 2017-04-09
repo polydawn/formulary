@@ -1,0 +1,41 @@
+{
+	"Memos": {},
+	"RunRecords": {},
+	"Tags": {
+		"base": {
+			"RunRecordHID": "",
+			"Ware": {
+				"hash": "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT",
+				"type": "tar"
+			}
+		},
+		"go": {
+			"RunRecordHID": "",
+			"Ware": {
+				"hash": "UoY1amg4W8_JVQJ6tg6I4BQm1Mlw3ngT_kutZNr6XfFvvWAZfGrwDxDcQD2TzOVz",
+				"type": "tar"
+			}
+		},
+		"ipfs-src": {
+			"RunRecordHID": "",
+			"Ware": {
+				"hash": "446a16622cf42b8b6a69941f3913ea0d671f5a73",
+				"type": "git"
+			}
+		}
+	},
+	"Whereabouts": {
+		{
+			"hash": "aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT",
+			"type": "tar"
+		}: "http+ca://repeatr.s3.amazonaws.com/assets/",
+		{
+			"hash": "UoY1amg4W8_JVQJ6tg6I4BQm1Mlw3ngT_kutZNr6XfFvvWAZfGrwDxDcQD2TzOVz",
+			"type": "tar"
+		}: "https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz",
+		{
+			"hash": "446a16622cf42b8b6a69941f3913ea0d671f5a73",
+			"type": "git"
+		}: "https://github.com/ipfs/go-ipfs.git"
+	}
+}

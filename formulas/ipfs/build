@@ -1,0 +1,9 @@
+#!/bin/bash
+cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+
+mkdir -p wares
+reppl init
+reppl put hash base        aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT  --warehouse="http+ca://repeatr.s3.amazonaws.com/assets/"
+reppl put hash go          UoY1amg4W8_JVQJ6tg6I4BQm1Mlw3ngT_kutZNr6XfFvvWAZfGrwDxDcQD2TzOVz  --warehouse="https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz"
+reppl put hash ipfs-src    "$(git rev-parse HEAD)"  --kind=git  --warehouse=https://github.com/ipfs/go-ipfs.git
+reppl eval ./ipfs.formula

@@ -49,4 +49,6 @@ outputs:
 		filters:
 			- "uid keep"
 			- "gid keep"
+		# Zzh2OuX_nMx2geuTRNF-AF1-1n2Vz1D3GgN8oojdSx973tmoPJ5Mo0t8lgmvPqMj for the flat 1000:1000 perms
+		# 5ZmY6OS8hSu1FNerhLgea7jBNyZYY00DpYwf12fI8gDkFQLx7eWtmvd8L29p03yY for keep:keep
 		silo: "file+ca://./wares/"

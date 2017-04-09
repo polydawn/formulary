@@ -1,0 +1,20 @@
+inputs:
+  "/":        {tag: "base"}
+  "/app/go":  {tag: "go"}
+  "/task/":   {tag: "ipfs-src"}
+action:
+  env:
+    "PATH": "/bin/:/usr/bin/:/app/go/go/bin/"
+    "GOROOT": "/app/go/go"
+  command:
+    - bash
+    - -c
+    -|
+      set -euo pipeline
+      make install
+outputs:
+  "ipfs-linux-amd64":
+    tag:   "ipfs-linux-amd64"
+    mount: "/task/idunno/"
+    type: "tar"
+    silo: "file+ca://./wares/"

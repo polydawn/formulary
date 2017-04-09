@@ -1,0 +1,68 @@
++ apt-get install -y gcc
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  binutils cpp cpp-4.8 gcc-4.8 libasan0 libatomic1 libcloog-isl4
+  libgcc-4.8-dev libgmp10 libgomp1 libisl10 libitm1 libmpc3 libmpfr4
+  libquadmath0 libtsan0
+Suggested packages:
+  binutils-doc cpp-doc gcc-4.8-locales gcc-multilib manpages-dev autoconf
+  automake1.9 libtool flex bison gdb gcc-doc gcc-4.8-multilib gcc-4.8-doc
+  libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg libasan0-dbg
+  libtsan0-dbg libquadmath0-dbg
+Recommended packages:
+  libc6-dev libc-dev
+The following NEW packages will be installed:
+  binutils cpp cpp-4.8 gcc gcc-4.8 libasan0 libatomic1 libcloog-isl4
+  libgcc-4.8-dev libgmp10 libgomp1 libisl10 libitm1 libmpc3 libmpfr4
+  libquadmath0 libtsan0
+0 upgraded, 17 newly installed, 0 to remove and 23 not upgraded.
+Need to get 14.7 MB of archives.
+After this operation, 52.0 MB of additional disk space will be used.
+
+
+
+
+configure:3613: checking whether the C compiler works
+configure:3635: gcc    conftest.c  >&5
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+
+
+
+
+
++ apt-get install -y gcc build-essential
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  binutils cpp cpp-4.8 dpkg-dev g++ g++-4.8 gcc-4.8 libasan0 libatomic1
+  libc-dev-bin libc6-dev libcloog-isl4 libdpkg-perl libgcc-4.8-dev libgmp10
+  libgomp1 libisl10 libitm1 libmpc3 libmpfr4 libquadmath0 libstdc++-4.8-dev
+  libtimedate-perl libtsan0 linux-libc-dev patch xz-utils
+Suggested packages:
+  binutils-doc cpp-doc gcc-4.8-locales debian-keyring g++-multilib
+  g++-4.8-multilib gcc-4.8-doc libstdc++6-4.8-dbg gcc-multilib manpages-dev
+  autoconf automake1.9 libtool flex bison gdb gcc-doc gcc-4.8-multilib
+  libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg libasan0-dbg
+  libtsan0-dbg libquadmath0-dbg glibc-doc libstdc++-4.8-doc ed diffutils-doc
+Recommended packages:
+  fakeroot libalgorithm-merge-perl libfile-fcntllock-perl
+The following NEW packages will be installed:
+  binutils build-essential cpp cpp-4.8 dpkg-dev g++ g++-4.8 gcc gcc-4.8
+  libasan0 libatomic1 libc-dev-bin libc6-dev libcloog-isl4 libdpkg-perl
+  libgcc-4.8-dev libgmp10 libgomp1 libisl10 libitm1 libmpc3 libmpfr4
+  libquadmath0 libstdc++-4.8-dev libtimedate-perl libtsan0 linux-libc-dev
+  patch xz-utils
+0 upgraded, 29 newly installed, 0 to remove and 23 not upgraded.
+Need to get 37.8 MB of archives.
+After this operation, 113 MB of additional disk space will be used.
+
+
+
+
