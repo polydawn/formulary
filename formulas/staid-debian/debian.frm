@@ -6,7 +6,7 @@ inputs:
 			- "file+ca://./wares/"
 			- "http+ca://repeatr.s3.amazonaws.com/assets/"
 action:
-	policy: sysad
+	policy: sysad ## needed for debootstrap (it uses mknod).
 	command:
 		- "/bin/bash"
 		- "-c"
