@@ -11,7 +11,6 @@ action:
 		- "/bin/bash"
 		- "-c"
 		- |
-			#!/bin/bash
 			set -euo pipefail
 			set -x
 
