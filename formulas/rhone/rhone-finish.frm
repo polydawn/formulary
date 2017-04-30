@@ -4,6 +4,8 @@ inputs:
 	"/":  {tag: "rhone-step1"}
 action:
 	policy: uidzero
+	cradle: false
+	cwd: /
 	command:
 		- "/bin/bash"
 		- "-c"
