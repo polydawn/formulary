@@ -60,6 +60,8 @@ action:
 			rm -rf rhone/var/cache/apk/ rhone/var/cache/misc/
 			# this one is ver bad: scripts.tar in particular causes nondet because it has timestamps inside of it
 			rm -rf rhone/lib/apk/db/
+			# call me crazy but I find this terminfo db to be excessive
+			rm -rf rhone/usr/share/terminfo/
 outputs:
 	"rhone":
 		type: "tar"
