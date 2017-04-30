@@ -12,7 +12,7 @@ reppl put hash  apk-keys   mPujwdqo-0ZyaZ44syjhXf_o9MSlxvxCfJL3i1qq09GWl6ItfsN9x
 
 ### Build the base image snapshot.
 ###  We split this into a multi-step process in order to run with the absolute minimal privs possible.
-reppl eval ./rhone.frm
+reppl eval ./rhone-step1.frm
 reppl eval ./rhone-finish.frm
 ### Test it.
 reppl eval ./rhone-test.frm
