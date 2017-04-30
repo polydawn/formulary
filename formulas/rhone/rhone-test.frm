@@ -12,3 +12,6 @@ action:
 
 			echo hello world
 			find {/usr,/bin,/lib} -type f -perm +0111
+
+			ls -lah /etc/apk
+			head -n9999 /etc/apk/*
