@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 
 mkdir -p wares
