@@ -19,6 +19,7 @@ action:
 			packages+=("bash")
 			packages+=("strace")
 			packages+=("lddtree")
+			packages+=("musl-utils")
 
 			### Use 'apk' to initialize a new dir with just a handful of packages.
 			mkdir rhone
