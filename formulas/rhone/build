@@ -16,7 +16,10 @@ reppl put hash  apk-keys   mPujwdqo-0ZyaZ44syjhXf_o9MSlxvxCfJL3i1qq09GWl6ItfsN9x
 reppl eval ./rhone-step1.frm
 reppl eval ./rhone-finish.frm
 ### Test it.
+### Several times -- bash hello; then that common packages that should be distro-agnostic and relocatable also work correctly, as a baseline.
 reppl eval ./rhone-test.frm
+reppl eval ./rhone-test-go.frm
+reppl eval ./rhone-test-rust.frm
 
 ### Construct the gcc build tools snapshot.
 reppl eval ./rhone+builder.frm
