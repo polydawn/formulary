@@ -2,7 +2,7 @@
 inputs:
 	"/":
 		type: "tar"
-		hash: "Fr6-wgGLi9i1MZroHpwpd8tW-alGrI5FRkWK_KRT90NdKMIKdShG_1aAbLSvXr9b"
+		hash: "yxj0rFk0GI2oAr3RQ52pR4lirg4zv8bd9_qqoeeBtd-uxh7gLUPCFIYLldPpax5M"
 		silo:
 			- "file+ca://./wares/"
 			- "http+ca://repeatr.s3.amazonaws.com/assets/"

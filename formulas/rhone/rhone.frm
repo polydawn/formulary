@@ -30,6 +30,7 @@ action:
 			#packages+=("coreutils")
 			packages+=("bash")
 
+			### Use 'apk' to initialize a new dir with just a handful of packages.
 			mkdir rhone
 			/apk/sbin/apk.static \
 				--root rhone \
@@ -37,9 +38,22 @@ action:
 				--update-cache \
 				--keys-dir /apk-known-keys/etc/apk/keys/ \
 				--repository http://nl.alpinelinux.org/alpine/v3.6/main \
+				--no-scripts \
 				add "${packages[@]}"
-			# note: apk has this neat '--no-scripts' flag, and with it, this would actually run with policy=uidzero.
-			#  however, no-scripts for busybox, heh, no.  result is not operational.
+
+			### Chroot on into that new image path, and sanitize.
+			chroot rhone bash -c "$(cat <<EOF
+				set -euo pipefail
+				set -x
+
+				### Finish busybox install.  (apk scripts usually do this, but we disabled
+				###  those and do this step manually ourselves for permissions reasons.)
+				/bin/busybox --install -s
+
+				### Finish bash install.
+				add-shell '/bin/bash'
+			EOF
+			)"
 
 			### discard messy bits
 			# this one is deterministic, but also a cache that's not relevant to our interests
