@@ -11,4 +11,4 @@ action:
 			set -x
 
 			echo hello world
-			find / | grep -v ^/proc
+			find {/usr,/bin,/lib} -type f -perm +0111
