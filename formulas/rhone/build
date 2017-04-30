@@ -1,0 +1,18 @@
+#!/bin/bash
+cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+
+mkdir -p wares
+reppl init
+
+### Bootstrapping asset.  An arbitrarily blessed ubuntu image from time bordering on immemorial.  (It's from staid-ubuntu formulary, though.)
+reppl put hash  bootstrap  aLMH4qK1EdlPDavdhErOs0BPxqO0i6lUaeRE4DuUmnNMxhHtF56gkoeSulvwWNqT  --warehouse="http+ca://repeatr.s3.amazonaws.com/assets/"
+### A statically linked Alpine APK tool, and pinned keys for its trust root.
+reppl put hash  apk        QzL5_CplD_vt1QXRZwlVFrhKZKNP3q0oStYwJSaOu8pxNfkwiiGks-wNLWksvCM1  --warehouse="http://nl.alpinelinux.org/alpine/v3.6/main/x86_64/apk-tools-static-2.7.1-r0.apk"
+reppl put hash  apk-keys   mPujwdqo-0ZyaZ44syjhXf_o9MSlxvxCfJL3i1qq09GWl6ItfsN9xSxPjuOHZahA  --warehouse="http://nl.alpinelinux.org/alpine/v3.6/main/x86_64/alpine-keys-2.1-r1.apk"
+
+### Build the base image snapshot.
+###  We split this into a multi-step process in order to run with the absolute minimal privs possible.
+reppl eval ./rhone.frm
+reppl eval ./rhone-finish.frm
+### Test it.
+reppl eval ./rhone-test.frm
