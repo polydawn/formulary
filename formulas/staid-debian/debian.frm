@@ -54,10 +54,11 @@ action:
 				cat > /usr/bin/apt-zero <<-EOF2
 					apt-get autoremove -y
 					apt-get clean -y
-					rm -rf /var/lib/apt/lists
 					rm -rf /var/cache/{apt,debconf,ldconfig}
 					# truncate so as not to lose the file's ownership.
 					truncate --size=0 /var/log/alternatives.log /var/log/dpkg.log /var/log/apt/* || true
+					# only remove files for the same reason (the 'partial' directory has odd bits, and removing it causes additional kerfuffle later).
+					find /var/lib/apt/lists -type f | xargs rm
 			EOF2
 				chmod +x /usr/bin/apt-zero
 				/usr/bin/apt-zero
