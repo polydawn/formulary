@@ -43,7 +43,7 @@ action:
 
 			### discard messy bits
 			# this one is deterministic, but also a cache that's not relevant to our interests
-			rm -rf rhone/var/cache/apk/
+			rm -rf rhone/var/cache/apk/ rhone/var/cache/misc/
 			# this one is ver bad: scripts.tar in particular causes nondet because it has timestamps inside of it
 			rm -rf rhone/lib/apk/db/
 outputs:
