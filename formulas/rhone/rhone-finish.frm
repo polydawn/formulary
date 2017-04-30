@@ -20,6 +20,9 @@ action:
 
 			### Finish bash install.
 			add-shell '/bin/bash'
+
+			### Configure a default DNS service (something is better than nothing).
+			echo "nameserver 8.8.8.8" > /etc/resolv.conf
 outputs:
 	"rhone":
 		tag: "rhone"
