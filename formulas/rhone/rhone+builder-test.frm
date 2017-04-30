@@ -23,4 +23,6 @@ action:
 			gcc hello.c || true
 			ls -lah
 
+			lddtree -a ./a.out
+			strings ./a.out | head
 			./a.out

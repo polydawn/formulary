@@ -18,6 +18,7 @@ action:
 			packages+=("busybox")
 			packages+=("bash")
 			packages+=("strace")
+			packages+=("lddtree")
 
 			### Use 'apk' to initialize a new dir with just a handful of packages.
 			mkdir rhone
