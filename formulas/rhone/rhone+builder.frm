@@ -16,7 +16,27 @@ action:
 			set -x
 
 			packages=()
+			### The following is the total set you get for resolving "build-base".
+			###  We've cherry-picked the minimal things we can get away with; the rest are commented out.
+			#packages+=("musl") ## implied by 'gcc'
+			#packages+=("zlib") ## implied by 'gcc'
+			#packages+=("binutils-libs") ## implied by 'gcc'
+			#packages+=("binutils") ## implied by 'gcc'
+			#packages+=("gmp") ## implied by 'gcc'
+			#packages+=("isl") ## implied by 'gcc'
+			#packages+=("libgomp") ## implied by 'gcc'
+			#packages+=("libatomic") ## implied by 'gcc'
+			#packages+=("pkgconf") ## implied by 'gcc' (yes, really)
+			#packages+=("libgcc") ## implied by 'gcc'
+			#packages+=("mpfr3") ## implied by 'gcc'
+			#packages+=("mpc1") ## implied by 'gcc'
+			#packages+=("libstdc++") ## implied by 'gcc'
 			packages+=("gcc")
+			#packages+=("musl-dev") ## implied by 'libc-dev'
+			packages+=("libc-dev")
+			#packages+=("g++")
+			#packages+=("make")
+			#packages+=("fortify-headers")
 
 			### Use 'apk' to stack up some new packages.
 			###  (We're running this from the outside again because *we can*,
