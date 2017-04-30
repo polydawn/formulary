@@ -27,7 +27,6 @@ action:
 
 			packages=()
 			packages+=("busybox")
-			#packages+=("coreutils")
 			packages+=("bash")
 
 			### Use 'apk' to initialize a new dir with just a handful of packages.

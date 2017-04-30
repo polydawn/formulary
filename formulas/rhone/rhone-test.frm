@@ -16,4 +16,4 @@ action:
 			set -x
 
 			echo hello world
-			find /
+			find / | grep -v ^/proc
