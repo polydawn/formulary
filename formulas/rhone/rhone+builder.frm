@@ -1,7 +1,8 @@
-### 'rhone' is a minimal but cozy base image snapshot assembled from alpine.
-### It contains a bash shell, busybox coreutils, and precious little else.
+### 'rhone+builder' adds gcc to the basic 'rhone' image.
+### Like the basic image, we're gathering materials using Alpine APK.
 inputs:
-	"/":                {tag: "bootstrap"}
+	"/":                {tag: "rhone"}
+	"/task/rhone":      {tag: "rhone"}
 	"/apk":             {tag: "apk"}
 	"/apk-known-keys":  {tag: "apk-keys"}
 action:
@@ -15,12 +16,11 @@ action:
 			set -x
 
 			packages=()
-			packages+=("busybox")
-			packages+=("bash")
-			packages+=("strace")
+			packages+=("gcc")
 
-			### Use 'apk' to initialize a new dir with just a handful of packages.
-			mkdir rhone
+			### Use 'apk' to stack up some new packages.
+			###  (We're running this from the outside again because *we can*,
+			###  and it means we continue to be free to not bundle the apk tools.)
 			/apk/sbin/apk.static \
 				--root rhone \
 				--initdb \
@@ -35,11 +35,9 @@ action:
 			rm -rf rhone/var/cache/apk/ rhone/var/cache/misc/
 			# this one is ver bad: scripts.tar in particular causes nondet because it has timestamps inside of it
 			rm -rf rhone/lib/apk/db/
-			# call me crazy but I find this terminfo db to be excessive
-			rm -rf rhone/usr/share/terminfo/
 outputs:
-	"rhone":
-		tag: "rhone-step1"
+	"rhone-builder":
+		tag: "rhone-builder"
 		type: "tar"
 		mount: "/task/rhone"
 		filters:

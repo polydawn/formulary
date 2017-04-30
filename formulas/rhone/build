@@ -16,3 +16,6 @@ reppl eval ./rhone-step1.frm
 reppl eval ./rhone-finish.frm
 ### Test it.
 reppl eval ./rhone-test.frm
+
+### Construct the gcc build tools snapshot.
+reppl eval ./rhone+builder.frm
