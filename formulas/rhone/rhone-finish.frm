@@ -21,6 +21,12 @@ action:
 			### Finish bash install.
 			add-shell '/bin/bash'
 
+			### Symlink Alpine's 'ld' to the usual location for this.
+			###  '/lib64/ld-linux-x86-64.so.2' is a blessed string embedded in almost
+			###   every linux binary you're likely to see in the wild.
+			mkdir /lib64
+			ln -s /lib/ld-musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+
 			### Configure a default DNS service (something is better than nothing).
 			echo "nameserver 8.8.8.8" > /etc/resolv.conf
 outputs:
