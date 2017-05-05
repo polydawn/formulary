@@ -35,7 +35,7 @@ action:
 			#packages+=("musl-dev") ## implied by 'libc-dev'
 			packages+=("libc-dev")
 			#packages+=("g++")
-			#packages+=("make")
+			packages+=("make")
 			#packages+=("fortify-headers")
 
 			### Use 'apk' to stack up some new packages.
