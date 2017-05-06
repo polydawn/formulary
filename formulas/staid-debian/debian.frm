@@ -20,22 +20,12 @@ action:
 
 			## Run debootstrap.
 			debootstrapOpts=()
-			debootstrapOpts+=("--arch=amd64") ## redundant, but just to be clear.
-			debootstrapOpts+=("--variant=minbase") ## *sounds* like min, but actually still includes gcc (twice!)
-			#debootstrapOpts+=("--print-debs") ## i think it would be nice to list what you're doing first but this also stops it from doing anything further.
-			debootstrapOpts+=("--download-only") ## alt: try '--make-tarball=' but then we have to hilariously untar it.
-			debootstrapExclude=()
-			debootstrapExclude+=("gcc-5-base") ## honestly don't think I should have to say this.
-			debootstrapExclude+=("gcc-6-base") ## honestly don't think I should have to say this.
-			debootstrapExclude+=("libsystemd0") ## so wrong.
+			debootstrapOpts+=("--arch=amd64")
+			debootstrapOpts+=("--variant=minbase")
 			debootstrap \
 				"${debootstrapOpts[@]}" \
-				--exclude="$(IFS=',' ; echo "${debootstrapExclude[*]}")" \
-				--keep-debootstrap-dir \
 				unstable \
 				/task/output
-			find /task/output
-			exit
 
 			## Chroot into the debootstrap'd path, and sanitize.
 			chroot /task/output bash -c "$(cat <<EOF
