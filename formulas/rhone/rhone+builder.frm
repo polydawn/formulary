@@ -37,6 +37,9 @@ action:
 			#packages+=("g++")
 			packages+=("make")
 			#packages+=("fortify-headers")
+			### And we're going to bring in a few more things that are essential for building the universe.
+			###  Specifically, perl is needed to build glibc, so it's (perhaps frustratingly) part of the minimals.
+			packages+=("perl")
 
 			### Use 'apk' to stack up some new packages.
 			###  (We're running this from the outside again because *we can*,
